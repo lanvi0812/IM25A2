@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>week 4 archive</title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 40px 20px;
+      font-family: 'Times New Roman', Times, serif;
+      line-height: 1.6;
+      background-color: #fff;
+    }
+
+    .text-column h1 {
+    font-size: 42px !important; 
+    margin-bottom: 20px;
+    text-align: center;
+    }
+
+    .text-column {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .text-column h1 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .text-column p {
+      text-align: justify;
+      margin-bottom: 1.2em;
+    }
+
+    nav {
+      max-width: 700px;
+      margin: 0 auto 20px;
+      text-align: center;
+      font-size: 1rem;
+    }
+
+    nav a {
+      margin: 0 8px;
+    }
+
+    figure {
+      max-width: 700px;
+      margin: 40px auto;
+      text-align: center;
+      background-color: white;
+    }
+
+    object {
+      width: 100%;
+      height: 500px;
+      border: 1px solid #ccc;
+    }
+
+    figcaption {
+      margin-top: 7px;
+      font-size: 1rem;
+      font-style: italic;
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <a href="../index.html">back</a>
+    <a href="./index.html">1</a>
+    <a href="../progress2/index.html">2</a>
+    <a href="../progress3/index.html">3</a>
+    <a href="../../week 5/index.html">week 5</a>
+  </nav>
+
+  <div class="text-column">
+    <h1>i. developing assignment 2's homepage</h1>
+    <p>
+      After submitting the first workbook, I decided to approach the second workbook by further expanding on the early internet aesthetic that I was already exploring. The 'bare' nature of this aesthetic feels like an appropriate way to present the various experimentations that I will be undertaking while still maintaining an overall vibe.
+    </p>
+    <p>
+      For the homepage, I wanted to do something that references the old internet without being too overtly bold or graphic — something to set the tone for the workbook while still leaving room for the other pages to develop. I began by revisiting some codes that I developed last year. 
+    </p>
+  </div>
+
+  <figure>
+    <object data="https://editor.p5js.org/50an6/full/LKb1k5a5_" type="text/html"></object> <!--iframe was kind of finnicky since chrome doesn't always allow it so i switched to object which fixes the issue-->
+    <figcaption>i. p5js sketch - video to ASCII</figcaption>
+  </figure>
+
+  <figure>
+    <object data="https://editor.p5js.org/50an6/full/NWhbqrP3w" type="text/html"></object>
+    <figcaption>ii. p5js sketch - monogram with random colour variable</figcaption>
+  </figure>
+
+  <div class="text-column">
+    <p>
+      Firstly, in order to apply the ASCII effect in a more relevant way, I tweaked the media source such that the code is going to be applied to a live webcam feedback rather than a set video loop. This was easily achieved using the createCapture(VIDEO) function. 
+    </p>
+
+    <figure>
+        <img src="../img/progress1.gif" style="width:100%; max-width:800px;">
+        <figcaption>iii. adjusted code with live camera</figcaption>
+      </figure>
+
+    <p>
+      I also played around with different string inputs and pixel sizes to try and find the most optimal combination for the page. Ultimately, I opted for a smaller pixel size as it gives a more detailed image. However, this also makes the output kind of laggy as well, although I don't quite mind the visual effect that it has. Then, in order to make the visual more engaging, I applied the logic that was used for the randomised colour of the monogram sketch to change the ASCII characters' colours every 3 seconds. 
+    </p>
+
+    <figure>
+        <img src="../img/progress2.gif" style="width:100%; max-width:800px;">
+        <figcaption>iv. final code</figcaption>
+      </figure>
+
+  </div>
+
+  <nav>
+    <a href="../index.html">back</a>
+    <a href="./index.html">1</a>
+    <a href="../progress2/index.html">2</a>
+    <a href="../progress3/index.html">3</a>
+    <a href="../../week 5/index.html">week 5</a>
+  </nav>
+
+</body>
+</html>

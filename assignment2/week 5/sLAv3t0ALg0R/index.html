@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>sLAv3t0ALg0R</title>
+  <style>
+    body {
+      font-family: 'Times New Roman', Times, serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+    }
+
+    .book {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .page {
+      width: 250px;
+      height: 350px;
+      background: #fff;
+      border: 1px solid #333;
+      padding: 20px;
+      overflow-y: auto;
+      text-align: justify;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 10px;
+    }
+
+    button {
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    a {
+      color: blue;
+      text-decoration: underline;
+    }
+
+    .button-return {
+      margin-top: 10px;
+    }
+
+    .dice {
+      width: 100%;
+      height: 100%;
+      transform: scale(0.7);  /* Adjust if necessary */
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>slave to the algorithm</h1>
+
+  <div class="book">
+    <div class="page" id="leftPage"></div>
+    <div class="page" id="rightPage"></div>
+  </div>
+
+  <div class="buttons">
+    <button onclick="prevPage()">Back</button>
+    <button onclick="nextPage()">Next</button>
+  </div>
+
+  <button onclick="window.location.href='../index.html'" class="button-return">Return</button>
+
+  <!-- Page templates -->
+  <template id="page-1">
+    <div class="left">"slave to algorithm: divinely guided by the internet"</div>
+    <div class="right"> <img src="../img/200w.gif" style="width: 250px; height: 300px;"></div>
+  </template>
+
+  <template id="page-2">
+    <div class="left">
+      <figure>
+        <!--https://github.com/lanvi0812/dice code here-->
+        <object data="https://lanvi0812.github.io/dice/" width="450" height="250" class="dice"></object>
+        <figcaption>in-class live coding: <a href="https://lanvi0812.github.io/dice/" target="_blank">decimal dice</a></figcaption>
+    </figure>
+    </div>
+    <div class="right">
+       <a href="https://www.thegoodtrade.com/features/what-are-angel-numbers/" target="_blank">Angel Numbers: An Angel Number Is A Repetitive Or Predictable Sequence Or Patterns Of Number. [...] In Numerology, The Belief In A Divine Or Mystical Correlation Between Numbers And Events, These Numbers Are Seen As Signs From The Universe.</a>
+       <p>these numbers can be observed serendipitously - on the clock, price tags, in the streets.</p>
+       <p>they can also be calculated, like from adding the digits of one's birthdate together.</p>
+    </div>
+  </template>
+
+  <template id="page-3">
+    <div class="left">
+      <b>the parameters:</b>
+      <p>1. once per hour, roll the dice</p>
+      <p>2. add up all of the decimal points to get an <i>angel number</i></p>
+      <p>3. complete the corresponding <i>angelic task</i> and document</p>
+
+      <p><i>***angelic tasks were generated in consultation with, and by chatGPT </i></p>
+    </div>
+    <div class="right">
+      <b>angelic tasks</b>
+      <p>111 FOCUS: Pick one task and do only that for the next hour. No distractions.</p>
+      <p>222 HARMONY: You must coordinate two activities or blend two sensory inputs (e.g., eat while drawing).</p>
+      <p>333 CREATIVITY: Make something (a doodle, video, edit, post, whatever). Let intuition guide you.</p>
+      <p>444 GROUNDING: Go outside, touch grass, take a break with tea. Find peace.</p>
+      <p>555 CHAOS/CHANGE: Randomize your next action (roll again, flip a coin, scroll & tap). Embrace disorder.</p>
+      <p>666 SELFCHECK: Write a quick note about how you’re feeling. Reflect. Confront distractions.</p>
+      <p>777 TRUST: Let something else decide your next move. Scroll to the 7th song/photo/note and follow where it leads. Let go of control.</p>
+      <p>888 ABUNDANCE: Indulge guilt-free. Give yourself a treat—food, music, comfort, whatever feels rich and nourishing. Feel the fullness of the moment.</p>
+      <p>999 COMPLETION: End something. Stop a task mid-way or delete a tab. Then clear space around you (mentally or physically) to allow a reset.</p>
+    </div>
+  </template>
+
+  <template id="page-4">
+    <div class="left">
+    0.9774447992114728 - no.444
+    <img src="../img/9am.jpg" style="width: 250px; height: 300px; margin-top: 10px;">
+    </div>
+    <div class="right">
+    12/4/25: 9:00am
+    <h3>Go outside, touch grass, take a break with tea. Find peace.</h3>
+    <p>(i went to the park near my house and touched grass)</p>
+    </div>
+  </template>
+
+  <template id="page-5">
+    <div class="left">
+    1.4884060532324939 - no.888
+    <img src="../img/10am.jpg" style="width: 250px; height: 300px; margin-top: 10px;">
+    </div>
+    <div class="right">
+    12/4/25: 10:00am
+    <h3>Indulge guilt-free. Give yourself a treat—food, music, comfort, whatever feels rich and nourishing. Feel the fullness of the moment.</h3>
+    <p>(i went back home and took a nap)</p>
+    </div>
+  </template>
+
+  <template id="page-6">
+    <div class="left">
+    3.166295934033728 - no.888
+    <img src="../img/11am.jpg" style="width: 250px; height: 300px; margin-top: 10px;">
+    </div>
+    <div class="right">
+    12/4/25: 11:00am
+    <h3>Indulge guilt-free. Give yourself a treat—food, music, comfort, whatever feels rich and nourishing. Feel the fullness of the moment.</h3>
+    <p>(i woke up again, rolled the dice, then decided to go to my friends' house to crash their brunch so i don't have to cook. and also to drag them into doing this exercise with me)</p>
+    </div>
+  </template>
+
+  <template id="page-7">
+    <div class="left">
+    3.640254256498793 - no.555
+    <img src="../img/12pm.jpg" style="width: 250px; height: 300px; margin-top: 10px;">
+    </div>
+    <div class="right">
+    12/4/25: 12:00pm
+    <h3>Randomize your next action (roll again, flip a coin, scroll & tap). Embrace disorder.</h3>
+    <p>(i rolled the dice around 12:15pm, decided to scroll on instagram for inspiration, found out that our favourite froyo place is closing down(????????) so we ran to the city to have it for the last time)</p>
+  
+    </div>
+  </template>
+
+  <template id="page-8">
+    <div class="left">
+    0.5570197428262178 - no.222
+    <img src="../img/1pm.jpg" style="width: 250px; height: 300px; margin-top: 10px;">
+    </div>
+    <div class="right">
+    12/4/25: 1:00pm
+    <h3>You must coordinate two activities or blend two sensory inputs (e.g., eat while drawing).</h3>
+    <p>(went window shopping at Curtin House but we had our headphones on the whole time)</p>
+    </div>
+  </template>
+
+  <template id="page-9">
+    <div class="left">
+    4.910024022631423 - no.777
+    <img src="../img/2pm.jpg" style="width: 250px; height: 300px; margin-top: 10px;">
+    </div>
+    <div class="right">
+    12/4/25: 2:00pm
+    <h3>Let something else decide your next move. Scroll to the 7th song/photo/note and follow where it leads. Let go of control.</h3>
+    <p>(i played my music on shuffle and PhotoID by Remi Wolf and Dominic Fike came on. so we met up with some more friends and went to a photobooth)</p>
+    </div>
+  </template>
+
+  <template id="page-10">
+    <div class="left">
+    0.021266090478851307 - no.888
+    <img src="../img/3pm.jpg" style="width: 250px; height: 300px; margin-top: 10px;">
+   </div>
+    <div class="right">
+    12/4/25: 3:00pm
+    <h3>Indulge guilt-free. Give yourself a treat—food, music, comfort, whatever feels rich and nourishing. Feel the fullness of the moment.</h3>
+    <p>(got a pastry)</p>
+    </div>
+  </template>
+
+  <template id="page-11">
+    <div class="left">
+    2.4727926629401944 - no.666
+    <img src="../img/4pm.jpg" style="width: 250px; height: 300px; margin-top: 10px;">
+    </div>
+    <div class="right">
+    12/4/25: 4:00pm
+    <h3>Write a quick note about how you’re feeling. Reflect. Confront distractions.</h3>
+    <p>(we happened to be on the tram. i just wrote a note in my diary - not to be disclosed)</p>
+    </div>
+  </template>
+
+  <template id="page-12">
+    <div class="left">
+    0.0742524254823671 - no.888
+    <img src="../img/5pm.jpg" style="width: 250px; height: 300px; margin-top: 10px;">
+    </div>
+    <div class="right">
+    12/4/25: 5:00pm
+    <h3>Indulge guilt-free. Give yourself a treat—food, music, comfort, whatever feels rich and nourishing. Feel the fullness of the moment.</h3>
+    <p>(baby sized popcorn chicken!!!)</p>
+    </div>
+  </template>
+
+  <template id="page-13">
+    <div class="left">
+    4.830726858902457 - no.666
+    <img src="../img/6pm.jpg" style="width: 250px; height: 300px; margin-top: 10px;">
+    </div>
+    <div class="right">
+    12/4/25: 6:00pm
+    <h3>Write a quick note about how you’re feeling. Reflect. Confront distractions.</h3>
+    <p>(i actually rolled this as I got out of the train. same thing though, i just wrote a secret note on my phone somewhere)</p>
+    </div>
+  </template>
+
+  <template id="page-14">
+    <div class="left">
+    5.609777308341937 - no.777
+    <img src="../img/7pm1.jpg" style="width: 250px; height: 300px; margin-top: 10px;">
+    <img src="../img/7pm.jpg" style="width: 250px; height: 300px; margin-top: 10px;">
+    </div>
+    <div class="right">
+    12/4/25: 7:00pm
+    <h3>Let something else decide your next move. Scroll to the 7th song/photo/note and follow where it leads. Let go of control.</h3>
+    <p>(i got back home and decided to pick a random postcard from my collection to decide what i'm having for dinner. i pulled a sardine postcard, there's no fish in the house. i did the next closest thing i could think of and took a bath after dinner)</p>
+    </div>
+  </template>
+  
+  <template id="page-15">
+    <div class="left">
+    4.264587579369904 - no.777
+    <img src="../img/8pm.jpg" style="width: 250px; height: 300px; margin-top: 10px;">
+    </div>
+    <div class="right">
+    12/4/25: 8:00pm
+    <h3>Let something else decide your next move. Scroll to the 7th song/photo/note and follow where it leads. Let go of control.</h3>
+    <p>(the 7th song that came on when i shuffled my spotify was popular from wicked. so i put wicked on the tv)</p>
+    </div>
+  </template>
+
+  <template id="page-16">
+    <div class="left">
+    1.5540083773909057 - no.111
+    <img src="../img/9pm.jpg" style="width: 250px; height: 300px; margin-top: 10px;">
+    </div>
+    <div class="right">
+    12/4/25: 9:00pm
+    <h3>Pick one task and do only that for the next hour. No distractions.</h3>
+    <p>(around 8:40pm my friends asked if i wanted to go out. naturally i said yes in honour of this exercise eventhough we spent the whole day together. i got to their house at 9:20pm and we got ready for an hour)</p>
+    </div>
+  </template>
+
+  <template id="page-17">
+    <div class="left">
+    <p>//////////////////////////////////////////end.</p>>
+    </div>
+    <div class="right">
+      <img src="../img/angel.gif" style="width: 250px; height: 300px; margin-top: 10px;">
+    </div>
+  </template>
+
+
+  <script>
+    let currentPage = 1;
+    const maxPages = 17;
+
+
+    //ChatGPT informed me about .cloneNode and helped to construct this function
+    function renderPages() {
+      const template = document.getElementById(`page-${currentPage}`);
+      if (template) {
+        const content = template.content.cloneNode(true);
+        document.getElementById("leftPage").innerHTML = content.querySelector(".left").innerHTML;
+        document.getElementById("rightPage").innerHTML = content.querySelector(".right").innerHTML;
+      }
+    }
+
+    function nextPage() {
+      if (currentPage < maxPages) {
+        currentPage++;
+        renderPages();
+      }
+    }
+
+    function prevPage() {
+      if (currentPage > 1) {
+        currentPage--;
+        renderPages();
+      }
+    }
+
+    renderPages(); // Initial load
+  </script>
+
+</body>
+</html>

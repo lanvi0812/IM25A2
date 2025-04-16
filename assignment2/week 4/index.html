@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>wk4--</title>
+  </head>
+
+<style>
+.back {
+  position: absolute;
+  top: 75px;
+  left: 730px;
+  font-weight: bold;
+}
+
+.week5 {
+  position: absolute;
+  top: 75px;
+  left: 670px;
+  font-weight: bold;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+  margin-top: 5px;
+  margin-left: 400px;
+  margin-right: 400px;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 24px;
+  font-weight: 400px;
+}
+
+input[type="checkbox"] {
+  margin-top: 10px;
+}
+
+.content-box {
+  margin-top: 40px;
+  display: none;
+  text-align: center;
+  font-size: 20px;
+  color: white;
+}
+
+.content-box.draggable {
+  cursor: move;
+}
+
+.hidden {
+  display: none;
+}
+
+.visible {
+  display: block;
+}
+
+.inspiration {
+  color: red;
+  background-color: white;
+}
+
+.exercises {
+  color: blue;
+  background-color: white;
+}
+
+.progress {
+  color: orange;
+  background-color: white;
+}
+
+#inspirationContent.visible {
+  justify-content: space-around; 
+  align-items: flex-start; 
+  position: relative;
+  display: block;
+}
+
+.laundry {
+  width: 225px;
+  height: 300px;
+  top: 5px;
+  left: 1100px;
+  position: absolute;
+}
+
+.laundry:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+  transition: transform 0.3s ease;
+}
+
+.box {
+  width: 200px;
+  height: 200px;
+  top: 400px;
+  left: 175px;
+  position: absolute;
+}
+
+.box:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+  transition: transform 0.3s ease;
+}
+
+.camera {
+  width: 275px;
+  height: 275px;
+  position: absolute;
+}
+
+.camera:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+  transition: transform 0.3s ease;
+}
+
+#exercisesContent.visible {
+  display: block;
+}
+
+.flowers {
+  top: 150px;
+  left: 500px;
+  position: absolute;
+  outline: 8px solid green;
+  border-radius: 8px;
+}
+
+.portrait {
+  top: 500px;
+  left: 950px;
+  position: absolute;
+  outline: 8px solid orange;
+  border-radius: 8px;
+}
+
+#progressContent.visible {
+  display: block;
+}
+
+.progress-subpage {
+  top: 500px;
+  left: 750px;
+  position: absolute;
+  font-size: 18px;
+}
+
+
+  </style>
+
+  <body>
+
+  <div class="content">
+    <div class="section">
+      <div class="circle inspiration">inspirations</div>  
+      <input type="checkbox" id="inspirationToggle" />
+    </div>
+    
+    <div class="section">
+      <div class="circle exercises">exercises</div>
+      <input type="checkbox" id="exercisesToggle" />
+    </div>
+    
+    <div class="section">
+      <div class="circle progress">progress</div>
+      <input type="checkbox" id="progressToggle" />
+    </div>
+  </div>
+
+  <a href="../index.html" class="back">go back</a>
+  <a href="../week 5/index.html" class="week5">week5</a>
+
+    
+    <!-- Containers for toggle content -->
+
+    <div id="inspirationContent" class="hidden content-static">
+      <a href="https://violetforest.com/scroll-spiral/" target="_blank"><img src="./img/box.png" class="box"></a>
+      <a href="http://www.teleportacia.org/war/" target="_blank"><img src="./img/camera.png" class="camera"></a>
+      <a href="https://www.anthonyantonellis.com/floaters/" target="_blank"><img src="./img/laundry.png" class="laundry"></a>
+    </div>
+
+
+    <div id="exercisesContent" class="hidden content-static">
+      <!--https://github.com/lanvi0812/flowerobsession  code here-->
+      <object data="https://lanvi0812.github.io/flowerobsession/" width="450" height="250" class="flowers"></object>
+      <!--https://github.com/lanvi0812/face code here-->
+      <object data="https://lanvi0812.github.io/face/" width="250" height="250" class="portrait"></object>
+    </div>
+
+    <div id="progressContent" class="hidden content-static">
+      <a href="./progress/index.html"><button class="progress-subpage">click here</button></a>
+    </div>
+
+    <script>
+      // Inspiration Toggle - Logic based on this webpost https://javascriptguide.com/how-to-hide-and-show-an-html-element-with-javascript/
+      const inspirationToggle = document.getElementById('inspirationToggle');
+      const inspirationContent = document.getElementById('inspirationContent');
+    
+      inspirationToggle.addEventListener('change', function () {
+        if (this.checked) {
+          inspirationContent.classList.remove('hidden');
+          inspirationContent.classList.add('visible');
+        } else {
+          inspirationContent.classList.remove('visible');
+          inspirationContent.classList.add('hidden');
+        }
+      });
+
+    // Exercises Toggle 
+      const exercisesToggle = document.getElementById('exercisesToggle');
+      const exercisesContent = document.getElementById('exercisesContent');
+
+      exercisesToggle.addEventListener('change', function () {
+      if (this.checked) {
+      exercisesContent.classList.remove('hidden');
+      exercisesContent.classList.add('visible');
+      } else {
+      exercisesContent.classList.remove('visible');
+      exercisesContent.classList.add('hidden');
+      }
+      });
+
+    // Progress Toggle
+      const progressToggle = document.getElementById('progressToggle');
+      const progressContent = document.getElementById('progressContent');
+
+      progressToggle.addEventListener('change', function () {
+      if (this.checked) {
+      progressContent.classList.remove('hidden');
+      progressContent.classList.add('visible');
+      } else {
+      progressContent.classList.remove('visible');
+      progressContent.classList.add('hidden');
+      }
+      });
+    </script>
+
+  </body>
+</html>

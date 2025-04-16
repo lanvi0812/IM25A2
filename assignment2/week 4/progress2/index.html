@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>week 4 archive</title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 40px 20px;
+      font-family: 'Times New Roman', Times, serif;
+      line-height: 1.6;
+      background-color: #fff;
+    }
+
+    .text-column h1 {
+    font-size: 42px !important; 
+    margin-bottom: 20px;
+    text-align: center;
+    }
+
+    .text-column {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .text-column h1 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .text-column p {
+      text-align: justify;
+      margin-bottom: 1.2em;
+    }
+
+    nav {
+      max-width: 700px;
+      margin: 0 auto 20px;
+      text-align: center;
+      font-size: 1rem;
+    }
+
+    nav a {
+      margin: 0 8px;
+    }
+
+    figure {
+      max-width: 700px;
+      margin: 40px auto;
+      text-align: center;
+      background-color: white;
+    }
+
+    object {
+      width: 100%;
+      height: 500px;
+      border: 1px solid #ccc;
+    }
+
+    figcaption {
+      margin-top: 7px;
+      font-size: 1rem;
+      font-style: italic;
+    }
+
+    .gif-row-1 {
+    display: flex;
+    gap: 20px; 
+    justify-content: center; 
+    align-items: center; 
+    }
+
+    .gif-row-1 img {
+    width: 220px; 
+    height: auto;
+    }
+
+    .gif-row-2 {
+    display: flex;
+    gap: 20px; 
+    justify-content: center; 
+    align-items: center; 
+    }
+
+    .gif-row-2 img {
+    width: 350px; 
+    height: auto;
+    padding-bottom: 50px;
+    }
+
+  </style>
+</head>
+
+<body>
+  <nav>
+    <a href="../index.html">back</a>
+    <a href="../progress/index.html">1</a>
+    <a href="./index.html">2</a>
+    <a href="../progress3/index.html">3</a>
+    <a href="../../week 5/index.html">week 5</a>
+  </nav>
+
+  <div class="text-column">
+    <h1>ii. yayoi kusama and other stories</h1>
+    <p>
+      This week, we visited the Yayoi Kusama exhibition. Although it's not my first time attending, I did find my experience much more enjoyable this time around due to the lesser crowd. Suprisingly, my favourite part ended up being the final room where you are able to place a flower anywhere you like. To be able to see the room again towards the end of the exhibition and witness how it had transformed over a few months was kind of touching somehow.
+    </p>
+
+    <figure>
+        <img src="../img/IMG_6782 2.jpg" style="width:100%; max-width:800px;">
+        <figcaption>i. 'flower obsession' in december 2024</figcaption>
+    </figure>
+
+    <figure>
+        <img src="../img/IMG_6783 2.jpg" style="width:100%; max-width:800px;">
+        <figcaption>ii. 'flower obsession' in march 2025</figcaption>
+    </figure>
+
+
+    <p>
+      Afterwards, we regrouped to go through some p5.js materials, including live coding demonstrations that covered fundamental knowledges and generative art. 
+    </p>  
+  </div>
+
+  <div class="gif-row-1">
+    <img src="../img/yayoi1.gif">
+    
+    <img src="../img/yayoi2.gif">
+   
+    <img src="../img/yayoi3.gif">
+  </div>
+
+
+  <div class="text-column">
+    <p>
+      I was intrigued by the second exercise and thought that the mouse trail can be utilized to create a Yayoi Kusama inspired p5.js work. I was specifically thinking about the 'flower obsession' obliteration room and how the density of flowers can be recreated digitally. I looked through a few p5.js tutorials and source codes before coming across <a href="https://www.youtube.com/watch?v=zH3eH3hlGoo&t=517s" target="_blank">this one</a>. Using this source code as the foundation, I then tweaked the code to push out flower images by using array logic. The flowers, which were found on <a href="https://www.hiclipart.com/" target="_blank">hiclipart,</a> are meant to resemble the fabric flowers from the installation.
+    </p>
+
+    <figure>
+      <!--https://github.com/lanvi0812/flowerobsession  code here-->
+        <object data="https://lanvi0812.github.io/flowerobsession/" type="text/html"></object> <!--source code was attributed in the paragraph above-->
+        <figcaption>iii. yayoi inspired p5.js sketch (move mouse over canvas)</figcaption>
+    </figure>
+    
+
+    <p>
+      I also did a simple 'self-portrait' on p5.js using simple shapes and a mouseMoved() function to shift 'my' facial expression side way. I initially was having some issues with the alignment of the facial features. However, this was easily resolved when I replace the initial fixed values that I was working with for variable values. As a finishing touch, I also randomised the colour of the background as the mouse moves for some y2k festivities. 
+    </p>
+  </div>
+
+  <div class="gif-row-2">
+    <!--https://github.com/lanvi0812/face code here-->
+    <img src="../img/portrait1.gif">
+    
+    <img src="../img/portrait2.gif">
+  </div>
+
+  <nav>
+    <a href="../index.html">back</a>
+    <a href="../progress/index.html">1</a>
+    <a href="./index.html">2</a>
+    <a href="../progress3/index.html">3</a>
+    <a href="../../week 5/index.html">week 5</a>
+  </nav>
+
+</body>
+</html>

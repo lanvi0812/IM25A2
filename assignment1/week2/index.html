@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vv0rkb00k: wk2</title>
+    <script src="libraries/p5.min.js"></script>
+    <script src="libraries/p5.sound.min.js"></script>
+  </head>
+
+  <style>
+    body {
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        background-image: url(img/bg.png);
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    #popUp {
+        width: 30vw;
+        height: 200px;
+        background-color: white;
+        position: absolute;
+        z-index: 10;
+        top: 30%;
+        left: 35vw;
+        border: 1px solid black;
+    }
+
+    #button {
+        background-image: url(img/button.png);
+        width: 215px;
+        height: auto;
+        position: absolute;
+        top: 260px;
+        left: 500px;
+        transform: rotate(-30deg);
+        cursor: pointer;
+    }
+
+    .hidden {
+    display: none;
+    }
+
+    h2 {
+        font-size: 12px;
+        font-family: 'Courier New', Courier, monospace;
+    }
+
+    #card {
+        width: 100px;
+        height: 100px;
+    }
+</style>
+
+  <body>
+    <script src="sketch.js"></script>
+
+    <img src="img/button.png" id="button" alt="button" onclick="toggleHidden()"/>
+
+    <div class="hidden" id="popUp">
+    <b>week2: sKeTch and PRotoTYPE</b>
+        <h2>
+            we began by doing a fast 8 sketching exercise, which i unfortunately forgot to take a picture of. 
+            however, i was kind of tempted to creating something with a pinterest-y, y2k, old internet aesthetic. initially, i was going to create a website interface that's inspired by the concept of 'POKEMON CARDS', but changed my mind as i want to create something that resembles an old computer system. 
+        </h2>
+
+        <h3>
+            attached on the bottom right corner is my moodboard, and this is a photo of a card-concept prototype i did in class <img src="img/card.png" id="card"/>
+        </h3>
+
+    </div>
+
+
+  </body>
+</html>
+
+
+

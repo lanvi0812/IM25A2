@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>wk5!</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background-color: #fdfdfd;
+    }
+
+    header, h1 {
+      margin: 5px;
+      text-align: center;
+    }
+
+    .trail-boards {
+      position: relative;
+      width: 585px;
+      height: 450px;
+      margin-top: 20px;
+      overflow: visible;
+    }
+
+    .trail-boards object {
+      width: 100%;
+      height: 100%;
+      border: 2px solid black;
+      background: white;
+      display: block;
+    }
+
+    .overlay-img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px;
+      height: auto;
+      pointer-events: none;
+    }
+
+    /* Only style #popUp */
+    #popUp {
+      position: absolute;
+      top: 40%;
+      left: 30%;
+      background: #fff;
+      border: 2px dashed black;
+      padding: 10px 20px;
+      cursor: move;
+      box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.2);
+      user-select: none;
+      z-index: 999;
+      height: 1.1rem;
+      overflow-x: hidden;
+      overflow-y: scroll;
+    }
+
+    #popUp p {
+      margin: 5px 0;
+      font-size: 0.9rem;
+    }
+
+    /* All other draggable icons */
+    .icon-draggable {
+      position: absolute;
+      cursor: move;
+    }
+
+    .icon-draggable img {
+      width: 300px;
+      height: auto;
+      display: block;
+    }
+
+    .icon-draggable img:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+  }
+
+    .button-row {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 30px 0 10px;
+      z-index: 1000;
+    }
+
+    .button-row button {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .button-row button:hover {
+      background-color: #e0e0e0;
+      color: black;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="trail-boards">
+    <!--https://github.com/lanvi0812/3DTRAIL code here-->
+    <object data="https://lanvi0812.github.io/3DTRAIL/" type="text/html"></object>
+    <img src="./img/mspaint2.png" class="overlay-img">
+  </div>
+
+  <div class="button-row">
+    <button onclick="location.href='../index.html'">home</button>
+    <button onclick="location.href='../week 4/index.html'">back</button>
+    <button onclick="location.href='./sLav3t0ALg0R/index.html'">slavetothealgorithm</button>
+    <button onclick="location.href='./progress/index.html'">progress</button>
+    <button onclick="location.href='../week 6/index.html'">week 6</button>
+  </div>
+
+  <!-- Pop-up window with text -->
+  <div class="draggable" id="popUp">
+    <p>(scroll me)</p>
+    <p>(move mouse)</p>
+    <p>(press a key)</p>
+    <p>(drag everything!)</p>
+    <p>(even the canvas!!)</p>
+    <p>(double click images!!!)</p>
+  </div>
+
+  <!-- Icon divs that only redirect on double-click -->
+  <div class="icon-draggable" style="top: 10%; left: 5%;">
+    <img src="./img/fish.png" ondblclick="window.open('https://simandy.github.io/codewords/', '_blank')">
+  </div>
+
+  <div class="icon-draggable" style="top: 50%; left: 5%;">
+    <img src="./img/clover.png" ondblclick="window.open('https://angeloplessas.com/', '_blank')">
+  </div>
+
+  <div class="icon-draggable" style="top: 60%; left: 90%;">
+    <img src="./img/emoji.webp" ondblclick="window.open('https://potatoland.org/shredder/shredder.html','_blank')">
+  </div>
+
+  <div class="icon-draggable" style="top: 20%; left: 70%;">
+    <img src="./img/computer.png" ondblclick="window.open('https://potatoland.org/riot/','_blank')">
+  </div>
+
+  <div class="icon-draggable" style="top: 20%; left: 90%;">
+    <img src="./img/marbles.png" ondblclick="window.open('https://catboys.exposed/catboychurch/','_blank')">
+  </div>
+
+<!--script from Matilda's Workbook-->
+  <script>
+    function dragElement(elmnt) {
+      let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+
+      elmnt.onmousedown = function(e) {
+        e = e || window.event;
+        e.preventDefault();
+        pos3 = e.clientX;
+        pos4 = e.clientY;
+        document.onmouseup = closeDragElement;
+        document.onmousemove = elementDrag;
+      };
+
+      function elementDrag(e) {
+        e = e || window.event;
+        e.preventDefault();
+        pos1 = pos3 - e.clientX;
+        pos2 = pos4 - e.clientY;
+        pos3 = e.clientX;
+        pos4 = e.clientY;
+        elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+        elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+      }
+
+      function closeDragElement() {
+        document.onmouseup = null;
+        document.onmousemove = null;
+      }
+    }
+
+    // Make all draggable elements draggable
+    const draggableElements = document.querySelectorAll('.draggable, .icon-draggable');
+    draggableElements.forEach(el => dragElement(el));
+  </script>
+</body>
+</html>

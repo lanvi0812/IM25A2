@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>wEEk 6</title>
+
+  <style>
+    body {
+      background-color: white;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      position: relative;
+    }
+
+    .gallery {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      padding-top: 30px;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
+    }
+
+    .image-box {
+      position: relative;
+      width: 300px;
+      height: 300px;
+      cursor: pointer;
+      overflow: hidden;
+      border: 10px solid green;
+      border-radius: 20px;
+    }
+
+    .image-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .image-box:hover img {
+      transform: scale(1.05);
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      color: white;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+
+    .image-box:hover .overlay,
+    .image-box.active-overlay .overlay {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .image-box.no-overlay .overlay {
+      display: none;
+    }
+
+    .toggle-content-row {
+      display: none;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 30px;
+    }
+
+    .toggle-content-row.visible {
+      display: flex;
+    }
+
+    .middle-links {
+      text-align: center;
+      font-size: 24px;
+      margin-top: 40px;
+      color: green;
+    }
+
+    .middle-links a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: green;
+    }
+
+    .middle-links a:hover {
+      text-decoration: underline;
+    }
+
+    @keyframes spinOnce {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .image-box.spin {
+      animation: spinOnce 0.6s ease;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="gallery">
+    <div class="image-box" id="inspirationBox">
+      <img src="./img/yellow.jpg">
+      <div class="overlay">.inspirations/</div>
+    </div>
+
+    <div class="image-box" id="exerciseBox">
+      <img src="./img/red.jpg">
+      <div class="overlay">.exercises/</div>
+    </div>
+
+    <div class="image-box" id="progressBox">
+      <img src="./img/blue.jpg">
+      <div class="overlay">.progress/</div>
+    </div>
+  </div>
+
+  <div class="middle-links">
+    <p>(<a href="../index.html">home</a> <a href="../week 5/index.html">back</a>)</p>
+  </div>
+
+  <div id="inspirationContent" class="toggle-content-row">
+    <div class="image-box no-overlay"><a href="https://showcase.p5js.org/#/2022-Data%20Visualization/raInBoWWarM/" target="_blank"><img src="./img/yellow.jpg"></a></div>
+    <div class="image-box no-overlay"><a href="https://www.itsnicethat.com/news/pentagram-giorgia-lupi-moleskine-art-101121" target="_blank"><img src="./img/yellow.jpg"></a></div>
+    <div class="image-box no-overlay"><a href="https://www.son-la.co/" target="_blank"><img src="./img/yellow.jpg"></a></div>
+  </div>
+
+  <div id="exerciseContent" class="toggle-content-row"> <!--mic access is iffy because it's sometimes blocked by the browser so i'm sharing the editor version instead of hosted ones-->
+    <div class="image-box no-overlay"><a href="https://editor.p5js.org/50an6/sketches/68MPHyeUo" target="_blank"><img src="./img/red.jpg"></a></div>
+    <div class="image-box no-overlay"><a href="https://editor.p5js.org/50an6/sketches/pjpHNPTJB" target="_blank"><img src="./img/red.jpg"></a></div>
+    <div class="image-box no-overlay"><a href="https://editor.p5js.org/50an6/sketches/bxP-pnOIb" target="_blank"><img src="./img/red.jpg"></a></div>
+  </div>
+
+  <div id="progressContent" class="toggle-content-row">
+    <div class="image-box no-overlay" id="spinTrigger"><img src="./img/blue.jpg"></div>
+    <div class="image-box no-overlay" id="soundTrigger"><img src="./img/blue.jpg"></div>
+    <div class="image-box no-overlay"><a href="./progress/index.html"><img src="./img/blue.jpg"></a></div>
+  </div>
+
+  <!-- Hidden Audio Element -->
+  <audio id="myAudio" src="./img/baby.mp3"></audio>
+
+  <script>
+    const toggles = [
+      { boxId: 'inspirationBox', contentId: 'inspirationContent' }, //I used chatGPT here to learn how to apply the function onto all 3 at once instead of repeating it 3 times like I did in week 4
+      { boxId: 'exerciseBox', contentId: 'exerciseContent' },
+      { boxId: 'progressBox', contentId: 'progressContent' }
+    ];
+
+    toggles.forEach(({ boxId, contentId }, _, allToggles) => {
+      const box = document.getElementById(boxId);
+      const content = document.getElementById(contentId);
+
+      box.addEventListener('click', () => {
+        const isVisible = content.classList.contains('visible');
+
+        allToggles.forEach(({ boxId: otherBoxId, contentId: otherContentId }) => {
+          document.getElementById(otherContentId).classList.remove('visible');
+          document.getElementById(otherBoxId).classList.remove('active-overlay');
+        });
+
+        if (!isVisible) {
+          content.classList.add('visible');
+          box.classList.add('active-overlay');
+        }
+      });
+    });
+
+    // Spin effect on first sub-box
+    const spinTrigger = document.getElementById('spinTrigger');
+    if (spinTrigger) {
+      spinTrigger.addEventListener('click', () => {
+        document.querySelectorAll('.image-box').forEach(el => {
+          el.classList.add('spin');
+          setTimeout(() => el.classList.remove('spin'), 600);
+        });
+      });
+    }
+
+    // Play sound on second sub-box
+    const soundTrigger = document.getElementById('soundTrigger');
+    const audio = document.getElementById('myAudio');
+    if (soundTrigger && audio) {
+      soundTrigger.addEventListener('click', () => {
+    if (audio.paused) {
+      audio.play();
+    } else {
+      audio.pause();
+    }
+    });
+    }
+  </script>
+</body>
+</html>
