@@ -6,25 +6,48 @@
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
+      font-size: 24px;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
       min-height: 100vh;
       position: relative;
       overflow: hidden;
-      cursor: none; /* Hide default cursor */
-      background-image: url(./img/bg.gif);
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center;
+      cursor: none;
+      background: none;
+    }
+
+    .background-toggle {
+      margin-top: 10px;
+      z-index: 5;
+    }
+
+    .background-toggle label {
+      margin: 0 10px;
+      cursor: pointer;
+    }
+
+    .title {
+      width: auto;
+      height: auto;
+      max-width: 700px;
+      margin-top: 50px;
+      margin-bottom: 10px;
+      pointer-events: none;
+    }
+
+    img.title:hover {
+      transform: none !important;
     }
 
     .container {
       display: flex;
-      gap: 40px;
+      gap: 20px;
       text-align: center;
       z-index: 1;
+      margin-top: 0;
+      margin-bottom: 20px;
+      position: relative;
     }
 
     .image-block {
@@ -39,10 +62,11 @@
       object-fit: cover;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       cursor: none;
+      margin-top: 10px;
     }
 
     img:hover {
-      transform: scale(1.05);
+      transform: scale(1.1);
     }
 
     input[type="range"] {
@@ -107,7 +131,6 @@
       transition: border-bottom-color 0.2s ease;
     }
 
-    /* Hover effect for triangle thumb */
     input[type="range"]:hover::-webkit-slider-thumb {
       border-bottom-color: red;
     }
@@ -118,14 +141,17 @@
 
     .caption {
       margin-top: 8px;
-      font-size: 14px;
-      color: #333;
+      font-size: 24px;
+      color: blue;
       text-decoration: underline;
       visibility: hidden;
       cursor: none;
     }
 
-    /* Halo cursor */
+    .caption:hover {
+      color:red;
+    }
+
     .cursor-halo {
       position: fixed;
       top: 0;
@@ -135,10 +161,21 @@
       background: radial-gradient(circle, rgba(255,255,255,0.60) 0%, rgba(0,140,255,0.5) 60%, rgba(0,140,255,0) 100%);
       border-radius: 50%;
       pointer-events: none;
-      transform: translate(-40px, -40px); /* Center white part to cursor */
+      transform: translate(-40px, -40px);
       z-index: 1000;
       mix-blend-mode: screen;
       filter: blur(4px);
+    }
+
+    .footer-links {
+      position: absolute;
+      right: 400px;
+      bottom: 100px;
+      z-index: 20;
+    }
+
+    .footer-links a {
+      margin-left: 20px;
     }
   </style>
 </head>
@@ -146,24 +183,42 @@
 
   <div class="cursor-halo"></div>
 
+  <!-- Background Selector -->
+  <!-- <div class="background-toggle">
+    <label><input type="radio" name="bg" onclick="changeBackground('none')" checked></label>
+    <label><input type="radio" name="bg" onclick="changeBackground('./img/bg.gif')"></label>
+    <label><input type="radio" name="bg" onclick="changeBackground('./img/bg2.gif')"></label>
+    <label><input type="radio" name="bg" onclick="changeBackground('./img/bg3.gif')"></label>
+  </div> -->
+
+  <!-- Title Image -->
+  <img src="./img/title.png" class="title">
+
+  <!-- Main Content -->
   <div class="container">
     <div class="image-block">
       <img id="img1" src="./img/wk7COVER.webp" alt="Week 7 Cover">
       <input type="range" min="0" max="100" value="0" oninput="applyEffects(this, 'img1')">
-      <div class="caption">/week 7</div>
+      <a href="./week7/index.html" class="caption">Week 7</a>
     </div>
 
     <div class="image-block">
       <img id="img2" src="./img/wk8COVER.webp" alt="Week 8 Cover">
       <input type="range" min="0" max="100" value="0" oninput="applyEffects(this, 'img2')">
-      <div class="caption">/week 8</div>
+      <a href="./week8/index.html" class="caption">Week 8</a>
     </div>
 
     <div class="image-block">
       <img id="img3" src="./img/wk9COVER.webp" alt="Week 9 Cover">
       <input type="range" min="0" max="100" value="0" oninput="applyEffects(this, 'img3')">
-      <div class="caption">/week 9</div>
+      <a href="./week9/index.html" class="caption">Week 9</a>
     </div>
+  </div>
+
+  <!-- Footer links -->
+  <div class="footer-links">
+    <a href="javascript:location.reload()">Refresh</a>
+    <a href="../index.html">Back</a>
   </div>
 
   <script>
@@ -197,7 +252,17 @@
       });
     };
 
-    // Smooth trailing halo cursor
+    // function changeBackground(src) {
+    //   if (src === 'none') {
+    //     document.body.style.backgroundImage = 'none';
+    //   } else {
+    //     document.body.style.backgroundImage = `url(${src})`;
+    //     document.body.style.backgroundRepeat = 'no-repeat';
+    //     document.body.style.backgroundSize = 'cover';
+    //     document.body.style.backgroundPosition = 'center';
+    //   }
+    // }
+
     const halo = document.querySelector('.cursor-halo');
     let mouseX = 0, mouseY = 0;
     let haloX = 0, haloY = 0;
@@ -216,6 +281,8 @@
     }
 
     animateHalo();
+
+    sessionStorage.removeItem('checkboxStates');
   </script>
 
 </body>

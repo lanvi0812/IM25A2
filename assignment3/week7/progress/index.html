@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>progress!</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      background-color: #fff;
+    }
+
+    #progressContent {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: url('../img/sky.jpg') center/cover no-repeat;
+      z-index: 0;
+      display: none;
+    }
+
+    .container {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 20px;
+      padding-top: 20px;
+      padding-left: 27.5vw;
+    }
+
+    .checkbox-group {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    label {
+      cursor: pointer;
+      user-select: none;
+    }
+
+    input[type="checkbox"] {
+      transform: scale(1.2);
+      margin-right: 5px;
+      cursor: pointer;
+    }
+
+    select {
+      width: 180px;
+      font-size: 1rem;
+      cursor: pointer;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    a {
+      text-decoration: none;
+      color: blue;
+      font-size: 1.1rem;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .media-box {
+      position: absolute;
+      top: 100px;
+      width: 300px;
+      z-index: 3;
+      text-align: center;
+    }
+
+    table {
+      margin: 30px auto 40px;
+      border-collapse: collapse;
+      width: 45%;
+      border: 1px solid black;
+      position: relative;
+      z-index: 2;
+      table-layout: fixed;
+      height: 700px;
+    }
+
+    table.blue-bg {
+      background-color: white;
+    }
+
+    td {
+      vertical-align: top;
+      padding: 0;
+    }
+
+    .tab-links {
+      height: 100%;
+      overflow-y: auto;
+      border-right: 1px solid black;
+    }
+
+    .tab-links p {
+      border-bottom: 1px solid black;
+      margin: 0;
+      padding: 10px;
+    }
+
+    .tab-content-wrapper {
+      height: 700px;
+      overflow-y: auto;
+      padding: 10px;
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    table, td {
+      text-align: center;
+    }
+
+    .tab-content h1 {
+      text-align: justify;
+      margin: 15px 40px 0 20px;
+    }
+
+    .content-block {
+      margin: 15px 40px 20px 20px;
+    }
+
+    .content-block p {
+      text-align: justify;
+      width: 100%;
+      margin-top: 15px;
+      margin-bottom: 15px;
+    }
+
+    .content-block img {
+      width: 100%;
+      height: auto;
+      display: block;
+      margin-top: 30px;
+    }
+
+    .content-block figure {
+      margin-top: 30px;
+    }
+
+    .content-block figcaption {
+      text-align: center;
+      font-style: italic;
+      margin-top: 5px;
+    }
+
+    .double-image-figure {
+      display: flex;
+      gap: 10px;
+    }
+
+    .double-image-figure img {
+      width: 50%;
+      height: auto;
+      margin-top: 0px;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="progressContent"></div>
+
+  <div class="container">
+    <a href="../../../assignment3/index.html">Back</a>
+
+    <select id="pageSelect" onchange="redirectToPage()">
+      <option value="../../week7/index.html">week7-----------</option>
+      <option value="../exercises/index.html">exercises</option>
+      <option value="../inspirations/index.html">inspirations</option>
+      <option value="index.html" selected>progress</option>
+    </select>
+
+    <div class="checkbox-group">
+      <label><input type="checkbox" id="progressToggle" /></label>
+      <label><input type="checkbox" id="tableColorToggle" /></label> 
+    </div>
+  </div>
+
+  <table id="contentTable">
+    <tr>
+      <td style="width: 5%;">
+        <div class="tab-links">
+          <p><a href="#" onclick="showTab('tab1')">1</a></p>
+          <p><a href="#" onclick="showTab('tab2')">2</a></p>
+          <p><a href="#" onclick="showTab('tab3')">3</a></p>
+        </div>
+      </td>
+      <td style="width: 95%;">
+        <div class="tab-content-wrapper">
+          <div id="tab1" class="tab-content active">
+            <a href="https://en.wikipedia.org/wiki/Can%27t_Help_Myself_(Sun_Yuan_and_Peng_Yu)"><h1>1. Can't Help Myself</h1></a>
+            <div class="content-block">
+              <p>Can't Help Myself was created by Sun Yuan and Pengyu in 2016. According to
+                <a href="https://www.guggenheim.org/artwork/34812">an article from Guggenheim New York</a>
+                - where the artwork was commissioned from - the idea of using a robotic arm as the main focus allude to the artists' desire replace their 'artistic will' with something mechanically programmed.
+                There is a deeper meaning to the work in regard to surveillance which is further expanded in articles covering this work.
+              </p>
+
+              <figure>
+                <img src="./img/canthelpmyself.gif">
+                <figcaption>i. Can't Help Myself (2016-2019) - Sun Yuan & Peng Yu</figcaption>
+              </figure>
+
+              <p>I first heard about Can't Help Myself when it went viral on TikTok a few years ago and then again when it was brought up during the class tutorial. Although I haven't made up my mind on if I 'like' this work or not, one thing that really 
+                impressed me is how Sun Yuan and Pengyu are able to depict a non-sentient robot in such a human way that is almost grotesque. 
+                I really respect the execution of this work and the emotions that it evoke.
+              </p>
+            </div>
+          </div>
+
+          <div id="tab2" class="tab-content">
+            <a href="https://en.wikipedia.org/wiki/Silver_Swan_(automaton)"><h1>2. Silver Swan</h1></a>
+            <div class="content-block">
+              <p>Automatons are machines that attempt to imitate organic beings. They were especially popular during the late 1800s and early 1900s 
+                when they were considered to be a novelty for entertainment. Silver Swan is considered to be one of the most well known automatons due to its 
+                exceptionally intricate craftsmanship and realism.
+              </p>
+
+              <figure>
+                <img src="./img/swan.gif">
+                <figcaption>i. Silver Swan (1700s) - John Joseph Merlin & James Cox</figcaption>
+              </figure>
+
+              <figure>
+                <img src="./img/swanfish.gif">
+                <figcaption>ii. Close up detail - fishes in the stream</figcaption>
+              </figure>
+
+              <p>
+               There's a certain whimsicality and magicalness to automatons that I'm quite fond of. 
+               Eventhough it's technically more mechanical engineering than physical computing as they are powered by clockwork, 
+               I think that there's a lot that can be learnt from automatons - particularly in how they present motion and different material textures. 
+              </p>
+            </div>
+          </div>
+
+          <div id="tab3" class="tab-content">
+            <h1>3. Exercise 2: LED DIAL</h1>
+            <div class="content-block">
+              <p>
+                Our second exercise was similar to the first one but instead this time we're controlling the LED light using a 
+                <a href="https://en.wikipedia.org/wiki/Potentiometer#:~:text=A%20potentiometer%20is%20a%20three,a%20variable%20resistor%20or%20rheostat.">potentiometer</a>
+                as a dial controller. The main difference is that the potentiometer has 3 terminals, which call for a slightly different wiring route. 
+              </p>
+              <figure>
+                <img src="./img/exercise2.png">
+                <figcaption>i. led dial circuit diagram</figcaption>
+              </figure>
+
+              <p>
+                Setting up the circuit was definitely easier the second time around. We understood the diagram a lot better and I personally was finally kind of wrapping my head around the concept of positive and negative terminals.
+              </p>
+
+              <figure>
+                <div class="double-image-figure">
+                  <img src="./img/IMG_68172.png">
+                  <img src="./img/IMG_68182.gif">
+                </div>
+                <figcaption>ii. completed circuit potentiometer dial</figcaption>
+              </figure>
+
+              <p>
+                Overall, I think that for a similar amount of effort the potentiometer seems to be a much more interesting way of controlling LED lights because of its mechanic. I can see it being used on a larger scale to facilitate something cool like an audiovisual projector. 
+              </p>
+
+            </div>
+          </div>
+        </div>
+      </td>
+    </tr>
+  </table>
+
+  <script>
+    function redirectToPage() {
+      const select = document.getElementById('pageSelect');
+      const url = select.value;
+      if (url) {
+        window.location.href = url;
+      }
+    }
+
+    function showTab(tabId) {
+      const tabs = document.querySelectorAll('.tab-content');
+      tabs.forEach(tab => {
+        tab.classList.remove('active');
+        if (tab.id === tabId) {
+          tab.classList.add('active');
+        }
+      });
+    }
+
+    function saveCheckboxStates() {
+      const states = {
+        progressToggle: document.getElementById('progressToggle').checked,
+        tableColorToggle: document.getElementById('tableColorToggle').checked
+      };
+      sessionStorage.setItem('checkboxStates', JSON.stringify(states));
+    }
+
+    function loadCheckboxStates() {
+      const states = JSON.parse(sessionStorage.getItem('checkboxStates'));
+      if (!states) return;
+
+      for (const key in states) {
+        const el = document.getElementById(key);
+        if (el) el.checked = states[key];
+      }
+
+      document.getElementById('progressToggle').dispatchEvent(new Event('change'));
+      document.getElementById('tableColorToggle').dispatchEvent(new Event('change'));
+    }
+
+    document.getElementById('progressToggle').addEventListener('change', function () {
+      document.getElementById('progressContent').style.display = this.checked ? 'block' : 'none';
+    });
+
+    document.getElementById('tableColorToggle').addEventListener('change', function () {
+      const table = document.getElementById('contentTable');
+      table.classList.toggle('blue-bg', this.checked);
+    });
+
+    document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+      checkbox.addEventListener('change', saveCheckboxStates);
+    });
+
+    window.addEventListener('load', loadCheckboxStates);
+  </script>
+
+</body>
+</html>
