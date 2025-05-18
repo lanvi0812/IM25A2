@@ -23,7 +23,7 @@
       left: 0;
       width: 100vw;
       height: 100vh;
-      background: url('../img/sky.webp') center/cover no-repeat;
+      background: url('../img/pink.jpg') center/cover no-repeat;
       z-index: 0;
       display: none;
     }
@@ -67,7 +67,7 @@
 
     a {
       text-decoration: none;
-      color: blue;
+      color:deeppink;
       font-size: 1.1rem;
     }
 
@@ -203,92 +203,58 @@
       <td style="width: 5%;">
         <div class="tab-links">
           <p><a href="#" onclick="showTab('tab1')">1</a></p>
-          <p><a href="#" onclick="showTab('tab2')">2</a></p>
-          <p><a href="#" onclick="showTab('tab3')">3</a></p>
         </div>
       </td>
       <td style="width: 95%;">
         <div class="tab-content-wrapper">
           <div id="tab1" class="tab-content active">
-            <h1>1. Re: ADRUINO</h1>
+            <h1>P5JS IN PHYSICAL COMPUTING</h1>
             <div class="content-block">
-              <p>This week was the first of three that we spent at the Telstra Maker Space to learn about 
-              <a href="https://en.wikipedia.org/wiki/Arduino">Adruino</a> and 
-              <a href="https://en.wikipedia.org/wiki/Physical_computing">Physical Computing</a>. 
-              We were given a toolkit to share between two of us at a time which looked something like this.</p>
-
-              <figure>
-                <img src="./img/adkit.webp" alt="Arduino kit">
-                <figcaption>i. the arduino kit</figcaption>
-              </figure>
-
-              <p>We attempted to identify the parts and what they potentially do, and failed miserably. 
-              Nonetheless, it was interesting to learn about the different components and what they're capable of once we were given the answers.</p>
-            </div>
-          </div>
-
-          <div id="tab2" class="tab-content">
-            <h1>2. Exercise 1: LED CIRCUIT</h1>
-            <div class="content-block">
-              <p>For our first exercise, we built a simple circuit that would power a LED light. We relied on the tutors' verbal instructions and the diagram provided to us to put everything together. A battery was used to provide the energy for this exercise which I thought was kind of cool.</p>
-
-              <figure>
-                <img src="./img/exercise1.png">
-                <figcaption>i. led circuit diagram</figcaption>
-              </figure>
-
-              <p>
-                At first, we had some trouble mapping the circuit onto the breadboard as we weren't familiar with the materials and how they're presented on the diagram. However, once we got the hang of it everything was quite straight forward. 
-              </p>
+              <p>This week, we wrapped up physical computing by attempting to combine Arduino IDE and p5.js to create a circuit with both physical and digital outputs. Using a potentiometer, we controlled two light bulbs while simultaneously triggering actions on the screen through p5.js.</p>
 
               <figure>
                 <div class="double-image-figure">
-                  <img src="./img/IMG_6806.png">
-                  <img src="./img/IMG_6803.png">
+                  <img src="./img/ex11.jpeg">
+                  <img src="./img/ex1.jpeg">
                 </div>
-                <figcaption>ii. completed circuit with button-activated led light</figcaption>
+                <figcaption>i. diagram and completed circuit with potentiometer</figcaption>
+              </figure>
+
+              <figure>
+                <img src="./img/ex1.gif">
+                <figcaption>ii. test 1 - checking to see if the sensor is receiveing data and the p5.js code is working</figcaption>
               </figure>
 
               <p>
-                As we had some time left, we tried to expand the circuit so that it would power two LED lights instead of just one. The challenge was to connect another LED light and button to the existing circuit while still keeping the electricity flow. We needed some help on the way but ultimately was able to get it done.
+                The initial arduino upload where we were trying to get the p5.js working and getting browser feedback was probably the toughest part. 
+                Similarly to week 8, it took me awhile of checking codes and reuploading my Arduino before realising that it was a wiring error all along. 
               </p>
 
               <figure>
-                <img src="./img/IMG_6814.png">
-                <figcaption>ii. circuit for two</figcaption>
+                <img src="./img/code.png">
+                <figcaption>iii. the two coding languages side by side</figcaption>
               </figure>
+
+
+              <figure>
+                <img src="./img/ex12.gif">
+                <figcaption>iv. p5.js output as controlled by the potentiometer</figcaption>
+              </figure>
+
+              <figure>
+                <img src="./img/ex3.gif">
+                <figcaption>v. screen recording view</figcaption>
+              </figure>
+
+              <p>
+                Having a screen-based element along with the physical Arduino makes the exercise feel more interesting and dynamic. 
+                I definitely enjoyed this more than some of the previous weeks and would love to explore it further (but not anytime soon to protect my sanity 
+                from the trials and tribulations of debugging).
+
+              </p>
+
             </div>
           </div>
-
-          <div id="tab3" class="tab-content">
-            <h1>3. Exercise 2: LED DIAL</h1>
-            <div class="content-block">
-              <p>
-                Our second exercise was similar to the first one but instead this time we're controlling the LED light using a 
-                <a href="https://en.wikipedia.org/wiki/Potentiometer#:~:text=A%20potentiometer%20is%20a%20three,a%20variable%20resistor%20or%20rheostat.">potentiometer</a>
-                as a dial controller. The main difference is that the potentiometer has 3 terminals, which call for a slightly different wiring route. 
-              </p>
-              <figure>
-                <img src="./img/exercise2.png">
-                <figcaption>i. led dial circuit diagram</figcaption>
-              </figure>
-
-              <p>
-                Setting up the circuit was definitely easier the second time around. We understood the diagram a lot better and I personally was finally kind of wrapping my head around the concept of positive and negative terminals.
-              </p>
-
-              <figure>
-                <div class="double-image-figure">
-                  <img src="./img/IMG_68172.png">
-                  <img src="./img/IMG_68182.gif">
-                </div>
-                <figcaption>ii. completed circuit potentiometer dial</figcaption>
-              </figure>
-
-              <p>
-                Overall, I think that for a similar amount of effort the potentiometer seems to be a much more interesting way of controlling LED lights because of its mechanic. I can see it being used on a larger scale to facilitate something cool like an audiovisual projector. 
-              </p>
-
             </div>
           </div>
         </div>

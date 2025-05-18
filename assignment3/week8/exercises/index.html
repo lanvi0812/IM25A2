@@ -218,7 +218,7 @@
                 We also continued exploring the Arduino kit and looking at the different sensors available.
                 <br><br>
                 For the first exercise, we used a <a href="https://en.wikipedia.org/wiki/Photoresistor">photoresistor</a> to control the rotation of a micro servo motor. 
-                By writing code in the IDE, we enabled the servo to respond to changes in light levels—allowing users to influence its movement by approaching or moving away from the sensor.
+                The IDE code enabled the servo to respond to changes in light levels—allowing users to influence its movement by approaching or moving away from the sensor.
               </p>
 
               <figure>
@@ -228,7 +228,7 @@
 
               <figure>
                 <img src="./img/ex1p2.png" alt="Arduino kit">
-                <figcaption>ii. completed circuit </figcaption>
+                <figcaption>ii. completed circuit with photoresistor </figcaption>
               </figure>
 
 
@@ -257,10 +257,10 @@
           <div id="tab2" class="tab-content">
             <h1>2. Exercise 2: ULTRASONIC</h1>
             <div class="content-block">
-              <p>In this week's tutorial, we were also working with an 
+              <p>We were also working with an 
                 <a href="https://en.wikipedia.org/wiki/Ultrasonic_transducer">ultrasonic sensor</a>
                 which is often used to measure distance. 
-                In this exercise, we put the ultrasonic sensor into a circuit with a buzzer to then control its activation based on the sensor's proximity to other objects. 
+                In this exercise, we put the sensor into a circuit with a buzzer to then control its activation based on proximity recognition. 
               </p>
 
               <figure>
@@ -269,61 +269,52 @@
               </figure>
 
               <figure>
-                <img src="./img/ex2.png">
-                <figcaption>ii. completed circuit</figcaption>
+                <img src="./img/ex2.jpeg">
+                <figcaption>ii. completed circuit with ultrasonic sensor</figcaption>
               </figure>
-
-
+        
               <p>
-                At first, we had some trouble mapping the circuit onto the breadboard as we weren't familiar with the materials and how they're presented on the diagram. However, once we got the hang of it everything was quite straight forward. 
+                This exercise was one where the challenges of IDE application became apparent. <br><br>
+                While we tried
+                to set everything up according to the instructions, the process of getting everything to work was quite tedious. 
+                We spent a lot of time double checking everything and going over the diagrams before realising that the 
+                bug was due to a wiring error. It eventually worked though and the resulting human-sensor interaction was quite similar to that of the photoresistor in the first exercise except that this one was a lot more sensitive. 
               </p>
-
-              <figure>
-                <div class="double-image-figure">
-                  <img src="./img/IMG_6806.png">
-                  <img src="./img/IMG_6803.png">
-                </div>
-                <figcaption>ii. completed circuit with button-activated led light</figcaption>
-              </figure>
-
-              <p>
-                As we had some time left, we tried to expand the circuit so that it would power two LED lights instead of just one. The challenge was to connect another LED light and button to the existing circuit while still keeping the electricity flow. We needed some help on the way but ultimately was able to get it done.
-              </p>
-
-              <figure>
-                <img src="./img/IMG_6814.png">
-                <figcaption>ii. circuit for two</figcaption>
-              </figure>
             </div>
           </div>
 
           <div id="tab3" class="tab-content">
-            <h1>3. Exercise 2: LED DIAL</h1>
+            <h1>3. Exercise 3: POTATOES AND FOIL</h1>
             <div class="content-block">
               <p>
-                Our second exercise was similar to the first one but instead this time we're controlling the LED light using a 
-                <a href="https://en.wikipedia.org/wiki/Potentiometer#:~:text=A%20potentiometer%20is%20a%20three,a%20variable%20resistor%20or%20rheostat.">potentiometer</a>
-                as a dial controller. The main difference is that the potentiometer has 3 terminals, which call for a slightly different wiring route. 
+                For the last exercise, we turned individual wires into touch-sensitive inputs that each triggered a different sound when touched using an extension library. 
               </p>
               <figure>
-                <img src="./img/exercise2.png">
-                <figcaption>i. led dial circuit diagram</figcaption>
+                <img src="./img/ex3.png">
+                <figcaption>i. wire sensor circuit diagram</figcaption>
               </figure>
 
               <p>
-                Setting up the circuit was definitely easier the second time around. We understood the diagram a lot better and I personally was finally kind of wrapping my head around the concept of positive and negative terminals.
+               Completing the circuit was alright, but like the second exercise, my group once again had a hard time with 
+               debugging and making sure that the code work. We never ended up being able to get one of the wires to respond but 2/3 of them did so 
+               I still counted that as a win. 
+
+               <br><br> The second photo is technically inaccurate as we were supposed to only stimulate one wire at a time but piercing the potato was fun. 
+            
               </p>
 
               <figure>
                 <div class="double-image-figure">
-                  <img src="./img/IMG_68172.png">
-                  <img src="./img/IMG_68182.gif">
+                  <img src="./img/ex31.jpeg">
+                  <img src="./img/ex32.png">
                 </div>
-                <figcaption>ii. completed circuit potentiometer dial</figcaption>
+                <figcaption>ii. completed circuit with wires</figcaption>
               </figure>
 
               <p>
-                Overall, I think that for a similar amount of effort the potentiometer seems to be a much more interesting way of controlling LED lights because of its mechanic. I can see it being used on a larger scale to facilitate something cool like an audiovisual projector. 
+                Ultimately, I came to the conclusion that the more interesting and complex an Adruino's sensor logic is, the more difficult 
+                it is to both set up and maintain. Therefore, it might be more efficient for me as a beginner (if i do physical computing for my final project) 
+                to set up a bunch of simple commands, rather than trying to create a really complex condition with advanced inputs and outputs. 
               </p>
 
             </div>
