@@ -19,20 +19,34 @@
 
     #progressContent {
       position: fixed;
-      top: 30%;
-      left: 52%;
-      transform: translate(-50%, -50%);
+      top: 10%;
+      left: 50%;
+      transform: translateX(-50%);
       width: 70vw;
       max-width: 700px;
-      z-index: 100;
+      z-index: 10;
       display: none;
+      background: white;
+      border: 4px solid white;
     }
 
     #progressContent video {
       width: 100%;
       height: auto;
       display: block;
-      border: 4px solid white;
+    }
+
+    .image-row {
+      display: flex;
+      width: 100%;
+      height: 150px;
+    }
+
+    .image-row img {
+      width: 20%;
+      height: 225%;
+      object-fit: fill;
+      display: block;
     }
 
     .container {
@@ -81,17 +95,22 @@
     a:hover {
       text-decoration: underline;
     }
-
-
   </style>
 </head>
 <body>
 
   <div id="progressContent">
     <video controls>
-      <source src="your-video.mp4" type="video/mp4" />
+      <source src="./img/wk7.mp4" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
+    <div class="image-row">
+      <img src="./img/1.gif" alt="img1">
+      <img src="./img/2.jpg" alt="img2">
+      <img src="./img/3.gif" alt="img3">
+      <img src="./img/download.gif" alt="img4">
+      <img src="./img/5.gif" alt="img5">
+    </div>
   </div>
 
   <div class="container">
@@ -107,6 +126,8 @@
     <div class="checkbox-group">
       <label><input type="checkbox" id="progressToggle" /></label>
     </div>
+
+    <a href="../week8/index.html">Next</a>
   </div>
 
   <script>
@@ -118,29 +139,15 @@
       }
     }
 
+    // Isolate this page from any saved sessionStorage
+    window.addEventListener('load', () => {
+      sessionStorage.removeItem('checkboxStates');
+    });
+
     document.getElementById('progressToggle').addEventListener('change', function () {
       const popup = document.getElementById('progressContent');
       popup.style.display = this.checked ? 'block' : 'none';
     });
-
-  function redirectToPage() {
-    const select = document.getElementById('pageSelect');
-    const url = select.value;
-    if (url) {
-      window.location.href = url;
-    }
-  }
-
-  // Completely clear any saved sessionStorage checkboxes to isolate week7
-  window.addEventListener('load', () => {
-    sessionStorage.removeItem('checkboxStates');
-  });
-
-  document.getElementById('progressToggle').addEventListener('change', function () {
-    const popup = document.getElementById('progressContent');
-    popup.style.display = this.checked ? 'block' : 'none';
-  });
-
   </script>
 
 </body>
